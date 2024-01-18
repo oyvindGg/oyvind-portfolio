@@ -10,14 +10,16 @@ export type HeroProps = SliceComponentProps<Content.HeroSlice>;
  * Component for "Hero" Slices.
  */
 const Hero = ({ slice }: HeroProps): JSX.Element => {
-  return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for hero (variation: {slice.variation}) Slices
-    </section>
-  );
+	return (
+		<section
+			data-slice-type={slice.slice_type}
+			data-slice-variation={slice.variation}
+		>
+			<h1>{slice.primary.first_name}</h1>
+			<p>{slice.primary.last_name}</p>
+			<p>{slice.primary.tag_line}</p>
+		</section>
+	);
 };
 
 export default Hero;
