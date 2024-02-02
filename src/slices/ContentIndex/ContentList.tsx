@@ -5,7 +5,7 @@ import { Content, asImageSrc, isFilled } from "@prismicio/client";
 import { ContentIndexSlice } from "../../../prismicio-types";
 import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
-import gsap from "gsap";
+import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -60,7 +60,7 @@ export default function ContentList({
 		return () => {
 			window.removeEventListener("mousemove", handleMouseMove);
 		};
-	});
+	}, [currentItem]);
 
 	const contentImages = items.map((item) => {
 		const image = isFilled.image(item.data.hover_image)
@@ -73,6 +73,14 @@ export default function ContentList({
 			exp: -10,
 		});
 	});
+
+	useEffect(() => {
+		contentImages.forEach((url) => {
+			if (!url) return;
+			const img = new Image();
+			img.src = url;
+		});
+	}, [contentImages]);
 
 	const onMouseEnter = (index: number) => {
 		setCurrentItem(index);
