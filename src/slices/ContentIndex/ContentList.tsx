@@ -56,6 +56,10 @@ export default function ContentList({
 		};
 
 		window.addEventListener("mousemove", handleMouseMove);
+
+		return () => {
+			window.removeEventListener("mousemove", handleMouseMove);
+		};
 	});
 
 	const contentImages = items.map((item) => {
