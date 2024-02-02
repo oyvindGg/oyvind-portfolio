@@ -48,6 +48,7 @@ export default function ContentList({
 							speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
 						ease: "back.out(2)",
 						duration: 1.5,
+						opacity: 1,
 					});
 				}
 				lastMousePos.current = mousePos;
@@ -109,8 +110,8 @@ export default function ContentList({
 					(item, index) =>
 						isFilled.keyText(item.data.title) && (
 							<li
-								className="list-item opacity-1"
 								key={index}
+								className="list-item opacity-1"
 								onMouseEnter={() => onMouseEnter(index)}
 							>
 								<Link
@@ -136,7 +137,7 @@ export default function ContentList({
 						)
 				)}
 				<div
-					className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
+					className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-1 transition-[background] duration-300"
 					style={{
 						backgroundImage:
 							currentItem !== null
