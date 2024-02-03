@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, use } from "react";
 import { Content, asImageSrc, isFilled } from "@prismicio/client";
 import { ContentIndexSlice } from "../../../prismicio-types";
 import { MdArrowOutward } from "react-icons/md";
@@ -23,11 +23,19 @@ export default function ContentList({
 }: ContentListProps) {
 	const component = useRef(null);
 	const revealRef = useRef(null);
+	const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
+
 	const [currentItem, setCurrentItem] = useState<null | number>(null);
 
 	const lastMousePos = useRef({ x: 0, y: 0 });
 
 	const urlPrefix = "Projects" ? "/projects" : "/";
+
+	useEffect(() => {
+		let ctx = gsap.context(() => {
+			itemsRef;
+		});
+	});
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
@@ -113,6 +121,7 @@ export default function ContentList({
 								key={index}
 								className="list-item opacity-1"
 								onMouseEnter={() => onMouseEnter(index)}
+								ref={(el) => (itemsRef.current[index] = el)}
 							>
 								<Link
 									href={urlPrefix + "/" + item.uid}
