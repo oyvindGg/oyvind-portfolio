@@ -33,7 +33,25 @@ export default function ContentList({
 
 	useEffect(() => {
 		let ctx = gsap.context(() => {
-			itemsRef;
+			itemsRef.current.forEach((item) => {
+				gsap.fromTo(
+					item,
+					{ opacity: 0, y: 20 },
+					{
+						opacity: 1,
+						y: 0,
+						duration: 1.3,
+						ease: "elastic.out(1, 0.3)",
+						stagger: 0.2,
+						scrollTrigger: {
+							trigger: item,
+							start: "top bottom-=100px",
+							end: "bottom center",
+							toggleActions: "play none none none",
+						},
+					}
+				);
+			});
 		});
 	});
 
