@@ -42,7 +42,6 @@ export default function ContentList({
 						y: 0,
 						duration: 1.3,
 						ease: "elastic.out(1, 0.3)",
-						stagger: 0.2,
 						scrollTrigger: {
 							trigger: item,
 							start: "top bottom-=100px",
@@ -52,8 +51,9 @@ export default function ContentList({
 					}
 				);
 			});
-		});
-	});
+			return () => ctx.revert();
+		}, component);
+	}, []);
 
 	useEffect(() => {
 		const handleMouseMove = (e: MouseEvent) => {
