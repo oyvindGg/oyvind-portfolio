@@ -117,19 +117,19 @@ function Geometry({r, position, geometry, materials, soundEffects}){
 		}
 
 		useEffect(() => {
-			gsap.context(() => {
-				setVisible(true)
-				gsap.from(meshRef.current.scale, 
-					{
-						x: 0,
-						y: 0,
-						z: 0,
-						duration: 1,
-						ease: "elastic.out(1, 0.3)",
-					})
+			let ctx = gsap.context(() => {
+			  setVisible(true);
+			  gsap.from(meshRef.current.scale, {
+				 x: 0,
+				 y: 0,
+				 z: 0,
+				 duration: gsap.utils.random(0.8, 1.2),
+				 ease: "elastic.out(1,0.3)",
+				 delay: gsap.utils.random(0, 0.5),
+			  });
 			});
-			return () => cubeTexture.revert();
-		}, [])
+			return () => ctx.revert();
+		 }, []);
 
 		return (
 			<group position={position} ref={meshRef}>
