@@ -7,6 +7,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { url } from "inspector";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,6 +101,14 @@ export default function ContentList({
 			exp: -10,
 		});
 	});
+
+	useEffect(() => {
+		contentImages.forEach((url) => {
+			if (!url) return;
+			const img = new Image();
+			img.src = url;
+		});
+	}, [contentImages]);
 
 	useEffect(() => {
 		contentImages.forEach((url) => {
