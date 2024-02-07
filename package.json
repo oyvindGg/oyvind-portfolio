@@ -16,6 +16,7 @@
     "@react-three/drei": "^9.96.0",
     "@react-three/fiber": "^8.15.14",
     "@types/three": "^0.160.0",
+    "@vercel/speed-insights": "^1.0.9",
     "clsx": "^2.1.0",
     "gsap": "^3.12.4",
     "next": "14.0.4",
