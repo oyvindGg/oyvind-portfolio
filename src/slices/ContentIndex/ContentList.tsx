@@ -98,7 +98,7 @@ export default function ContentList({
 			fit: "crop",
 			w: 220,
 			h: 320,
-			exp: -10,
+			exp: -5,
 		});
 	});
 
