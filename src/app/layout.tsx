@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
+			<SpeedInsights />
 			<PrismicPreview repositoryName={repositoryName} />
 		</html>
 	);
