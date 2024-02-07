@@ -19,40 +19,6 @@ export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
 export type ProjectsIndexProps =
 	SliceComponentProps<Content.ProjectDocumentDataSlicesSlice>;
 
-/**
- * Component for "ProjectsIndex" Slices.
- */
-export const ProjectsIndex = async ({
-	slice,
-}: ProjectsIndexProps): Promise<JSX.Element> => {
-	const client = createClient();
-	const projects = await client.getAllByType("project");
-
-	const items = slice.primary.content_type === "Project" ? projects : projects;
-
-	return (
-		<Bounded
-			data-slice-type={slice.slice_type}
-			data-slice-variation={slice.variation}
-		>
-			<Heading size="xl" className="mb-8">
-				{slice.primary.heading}
-			</Heading>
-			{isFilled.richText(slice.primary.description) && (
-				<div className="prose prose-xl prose-invert mb-10">
-					<PrismicRichText field={slice.primary.description} />
-				</div>
-			)}
-			<ContentList
-				items={items}
-				viewMoreText={slice.primary.view_more_text}
-				fallbackItemImage={slice.primary.fallback_item_image}
-				contentType={slice.primary.content_type}
-			/>
-		</Bounded>
-	);
-};
-
 export const ContentIndex = async ({
 	slice,
 }: ContentIndexProps): Promise<JSX.Element> => {
