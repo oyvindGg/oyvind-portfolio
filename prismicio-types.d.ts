@@ -70,6 +70,7 @@ export type HomepageDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | EducationSlice
   | ContentIndexSlice
   | TechlistSlice
   | BiographySlice;
