@@ -42,6 +42,17 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "content_type": {
+          "type": "Select",
+          "config": {
+            "label": "Content Type",
+            "placeholder": "",
+            "options": [
+              "Project",
+              "Blog"
+            ]
+          }
         }
       },
       "items": {}

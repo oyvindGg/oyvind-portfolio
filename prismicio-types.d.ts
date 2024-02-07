@@ -509,6 +509,16 @@ export interface ContentIndexSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   fallback_item_image: prismic.ImageField<never>;
+
+  /**
+   * Content Type field in *ContentIndex → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: content_index.primary.content_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  content_type: prismic.SelectField<"Project" | "Blog">;
 }
 
 /**
