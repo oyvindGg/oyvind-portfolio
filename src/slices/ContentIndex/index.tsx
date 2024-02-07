@@ -1,23 +1,18 @@
+/**
+ * Component for "ContentIndex" Slices.
+ */
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { createClient } from "@/prismicio";
+import ContentList from "./ContentList";
 import Bounded from "@/app/components/Bounded";
 import Heading from "@/app/components/Heading";
-import ContentList from "./ContentList";
 
 /**
  * Props for `ContentIndex`.
  */
 export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
 
-/**
- * Component for "ContentIndex" Slices.
-import { Content, isFilled } from "@prismicio/client";
-import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
-import { createClient } from "@/prismicio";
-import ContentList from "./ContentList";
-import Bounded from "@/components/Bounded";
-import Heading from "@/components/Heading";
 /**
  * Props for `ProjectsIndex`.
  */
@@ -33,8 +28,7 @@ export const ProjectsIndex = async ({
 	const client = createClient();
 	const projects = await client.getAllByType("project");
 
-	const items =
-		slice.primary.content_type === "Projects" ? projects : projects;
+	const items = slice.primary.content_type === "Project" ? projects : projects;
 
 	return (
 		<Bounded
@@ -53,6 +47,7 @@ export const ProjectsIndex = async ({
 				items={items}
 				viewMoreText={slice.primary.view_more_text}
 				fallbackItemImage={slice.primary.fallback_item_image}
+				contentType={slice.primary.content_type}
 			/>
 		</Bounded>
 	);
@@ -82,6 +77,7 @@ export const ContentIndex = async ({
 				items={items}
 				viewMoreText={slice.primary.view_more_text}
 				fallbackItemImage={slice.primary.fallback_item_image}
+				contentType={slice.primary.content_type}
 			/>
 		</Bounded>
 	);

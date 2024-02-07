@@ -19,6 +19,17 @@
             "placeholder": ""
           }
         },
+        "content_type": {
+          "type": "Select",
+          "config": {
+            "label": "Content Type",
+            "placeholder": "",
+            "options": [
+              "Project",
+              "Blog"
+            ]
+          }
+        },
         "description": {
           "type": "StructuredText",
           "config": {
@@ -41,17 +52,6 @@
             "label": "Fallback Item Image",
             "constraint": {},
             "thumbnails": []
-          }
-        },
-        "content_type": {
-          "type": "Select",
-          "config": {
-            "label": "Content Type",
-            "placeholder": "",
-            "options": [
-              "Project",
-              "Blog"
-            ]
           }
         }
       },

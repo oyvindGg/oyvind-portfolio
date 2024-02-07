@@ -1,24 +1,24 @@
 "use client";
 
-import React, { useRef, useState, useEffect, use } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Content, asImageSrc, isFilled } from "@prismicio/client";
-import { ContentIndexSlice } from "../../../prismicio-types";
 import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { url } from "inspector";
 
 gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
 	items: Content.ProjectDocument[] | Content.ProjectDocument[];
+	contentType: Content.ContentIndexSlice["primary"]["content_type"];
 	fallbackItemImage: Content.ContentIndexSlice["primary"]["fallback_item_image"];
-	viewMoreText: ContentIndexSlice["primary"]["view_more_text"];
+	viewMoreText: Content.ContentIndexSlice["primary"]["view_more_text"];
 };
 
 export default function ContentList({
 	items,
+	contentType,
 	fallbackItemImage,
 	viewMoreText = "View More",
 }: ContentListProps) {
