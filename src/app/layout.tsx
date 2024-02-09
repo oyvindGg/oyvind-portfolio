@@ -26,6 +26,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className="bg-zinc-900 text-zinc-100">
+			<link rel="favicon" href="@/public/favicon.svg" />
 			<body className={urbanist.className}>
 				<Header />
 				{children}
